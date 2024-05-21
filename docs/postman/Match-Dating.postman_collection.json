@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "d41c60ce-b58c-4765-8aa3-8c1a8d367182",
+		"name": "Match-Dating",
+		"description": "關於配對的API文件",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6924074"
+	},
+	"item": [
+		{
+			"name": "Add Single Person And Match",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Name\": \"Aron\",\n    \"Height\" : 175,\n    \"Gender\" : 1,   // 1:男生 , 2:女生\n    \"WantedDates\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}{{API_VERSION}}/Proile",
+					"host": [
+						"{{HOST}}{{API_VERSION}}"
+					],
+					"path": [
+						"Proile"
+					]
+				},
+				"description": "新增Profile且列出所有可能\n\n# Response Example\n\n``` json\n{\n    \"Profile\": {\n        \"ID\": 4,\n        \"Name\": \"zoee\",\n        \"Height\": 160,\n        \"Gender\": 2,\n        \"WantedDates\": 3\n    },\n    \"Candidates\": [\n        {\n            \"ID\": 2,\n            \"Name\": \"Arron\",\n            \"Height\": 180,\n            \"Gender\": 1,\n            \"WantedDates\": 3\n        },\n        {\n            \"ID\": 1,\n            \"Name\": \"Aron\",\n            \"Height\": 170,\n            \"Gender\": 1,\n            \"WantedDates\": 3\n        }\n    ]\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Single Person",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}{{API_VERSION}}/Proile/:id",
+					"host": [
+						"{{HOST}}{{API_VERSION}}"
+					],
+					"path": [
+						"Proile",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "要刪除的profile 唯一值"
+						}
+					]
+				},
+				"description": "刪除一筆profile"
+			},
+			"response": []
+		},
+		{
+			"name": "Query Single People",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}{{API_VERSION}}/QuerySinglePeople",
+					"host": [
+						"{{HOST}}{{API_VERSION}}"
+					],
+					"path": [
+						"QuerySinglePeople"
+					]
+				},
+				"description": "TODO"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "API_VERSION",
+			"value": "/api/v1",
+			"type": "string"
+		}
+	]
+}

@@ -2,7 +2,8 @@
 * 1. [Functional Requirement](#FunctionalRequirement)
 * 2. [Non-functional Requirement](#Non-functionalRequirement)
 * 3. [如何儲存資料及查詢](#)
-* 4. [TODO](#TODO)
+* 4. [API](#API)
+* 5. [TODO](#TODO)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -55,5 +56,9 @@ Implement a Match Dating HTTP server for practice system design
 根據以上表格 AVL 與 RBT 可以盡可能做到 log n 的時間複雜度，但在這邊我會選擇 RBT，原因是AVL在樹的高度平衡做的嚴謹，會比RBT多做幾次旋轉，意味著會比較浪費，故選擇紅黑數來當作我的資料結構。
 
 
-##  4. <a name='TODO'></a>TODO 
+##  4. <a name='API'></a>API
+
+請使用 Postman 導入此[文件](./docs/postman/Match-Dating.postman_collection.json)
+
+##  5. <a name='TODO'></a>TODO 
 [] API - 取得最多N種配對結果
