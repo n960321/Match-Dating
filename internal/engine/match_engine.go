@@ -49,6 +49,7 @@ func (e *MatchEngine) AddProfile(p *model.Profile) {
 }
 
 func (e *MatchEngine) RemoveProfile(p *model.Profile) {
+
 	if _p, ok := e.profileMap[p.ID]; !ok {
 		return
 	} else {
@@ -83,7 +84,6 @@ func (e *MatchEngine) GetProfile(p *model.Profile) *model.Profile {
 
 func (e *MatchEngine) GetAllMatch(p *model.Profile) *model.MatchResult {
 	result := new(model.MatchResult)
-
 	if p.Gender == model.GenderMale {
 		result.Candidates = e.female.ListProfilesWithHeight(p)
 	} else if p.Gender == model.GenderFemale {

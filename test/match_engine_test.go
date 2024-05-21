@@ -30,7 +30,7 @@ func TestMatchEngine_AddProfile(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			tt.args.engine.AddProfile(tt.args.p)
-			if r := tt.args.engine.GetProfile(tt.args.p); r != nil {
+			if r := tt.args.engine.GetProfile(tt.args.p); r == nil {
 				t.Errorf("Add Profile failed ,do not exist in engine")
 			}
 		})

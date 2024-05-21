@@ -21,21 +21,27 @@ func GetComparator(gender model.Gender) func(a, b interface{}) int {
 		return func(a, b interface{}) int {
 			aP := a.(*model.Profile)
 			bP := b.(*model.Profile)
-
+			if aP == bP {
+				return 0
+			}
 			if aP.Height <= bP.Height {
 				return 1
 			}
+
 			return -1
 		}
 	} else if gender == model.GenderFemale {
-
 		return func(a, b interface{}) int {
 			aP := a.(*model.Profile)
 			bP := b.(*model.Profile)
+			if aP == bP {
+				return 0
+			}
 
 			if aP.Height >= bP.Height {
 				return 1
 			}
+
 			return -1
 		}
 	}
@@ -56,7 +62,6 @@ func (t *RBTQueue) ListProfilesWithHeight(p *model.Profile) []*model.Profile {
 
 	it := t.tree.Iterator()
 	for it.Next() {
-
 		c := it.Value().(*model.Profile)
 		if p.Gender == model.GenderMale {
 			if p.Height <= c.Height {
